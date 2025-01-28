@@ -1,13 +1,24 @@
 const express = require('express');
 const admin = require('firebase-admin');
-const serviceAccountKey = require("./config/chat-app-38a98-firebase-adminsdk-n8amw-e764c9aa3b.json");
 const app = express();
+require('dotenv').config();
 const port = process.env.PORT || 3000;
 
 // Initialize Firebase Admin SDK
-const serviceAccount = serviceAccountKey;
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert({
+    "type": "service_account",
+    "project_id": process.env.project_id,
+    "private_key_id": process.env.private_key_id,
+    "private_key": process.env.private_key,
+    "client_email": process.env.client_email,
+    "client_id": process.env.client_id,
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": process.env.client_x509_cert_url,
+    "universe_domain": "googleapis.com"
+  }),
 });
 
 // Middleware to parse JSON
