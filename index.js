@@ -51,7 +51,7 @@ app.post('/send-notification', async (req, res) => {
 });
 
 app.get("/", (req, res) =>
-  res.send("Email OTP server running successfully ✅")
+  res.send("Notification server running successfully ✅")
 );
 
 app.listen(port, () => {
