@@ -1,0 +1,17 @@
+{
+  "name": "chat-application-notification-backend",
+  "version": "1.0.0",
+  "description": "A small backend that will trigger the notification at the firebase clound messaging (FCM)",
+  "license": "ISC",
+  "author": "kamesh singh sisodiya",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2"
+  }
+}
