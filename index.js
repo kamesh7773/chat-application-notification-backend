@@ -43,7 +43,6 @@ app.post("/send-notification", async (req, res) => {
       message: "Hello!",
       actions: "Reply",
     },
-    priority: "high",
   };
 
   try {
