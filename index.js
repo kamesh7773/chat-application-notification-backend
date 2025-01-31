@@ -34,7 +34,7 @@ app.post("/send-notification", async (req, res) => {
   }
 
   const message = {
-    to: token,
+    token: token,
     data: {
       title: title,
       body: body,
