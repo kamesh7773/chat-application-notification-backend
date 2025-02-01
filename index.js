@@ -34,9 +34,11 @@ app.post("/send-notification", async (req, res) => {
   }
 
   const message = {
-    notification: {
+    data: {
       title: title,
       body: body,
+      channelKey: 'basic_channel',
+      actions: 'Reply',
     },
     token: token
   };
