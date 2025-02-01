@@ -27,20 +27,21 @@ app.use(bodyParser.json());
 app.use(cors({ origin: "*" }));
 
 app.post("/send-notification", async (req, res) => {
-  const { token, title, body } = req.body;
+  const { token, title, body, senderID, recipientPublicKey } = req.body;
 
-  if (!token || !title || !body) {
-    return res.status(400).send("Token, title, body are required");
+  if (!token || !title || !body || !senderID || !recipientPublicKey) {
+    return res.status(400).send("Token, title, body, senderID, recipientPublicKey are required");
   }
 
   const message = {
     data: {
       title: title,
       body: body,
-      channelKey: 'basic_channel',
-      actions: 'Reply',
+      channelKey: "basic_channel",
+      senderID: senderID,
+      recipientPublicKey: recipientPublicKey,
     },
-    token: token
+    token: token,
   };
 
   try {
