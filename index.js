@@ -40,10 +40,10 @@ app.post("/send-notification", async (req, res) => {
     lastSeen,
   } = req.body;
 
-  if (!token || !title || !body || !senderID || !recipientPublicKey ) {
+  if (!token || !title || !body || !senderID || !recipientPublicKey || !name || !email || !imageUrl || !isOnline || !lastSeen) {
     return res
       .status(400)
-      .send("Token, title, body, senderID, recipientPublicKey are required");
+      .send("Token, title, body, senderID, recipientPublicKey, name, email, imageUrl, isOnline, lastSeen are required" );
   }
 
   const message = {
@@ -52,6 +52,7 @@ app.post("/send-notification", async (req, res) => {
       body: body,
       channelKey: "basic_channel",
       senderID: senderID,
+      recipientPublicKey: recipientPublicKey,
       name: name,
       email: email,
       imageUrl: imageUrl,
