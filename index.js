@@ -58,6 +58,7 @@ app.post("/send-notification", async (req, res) => {
       imageUrl: imageUrl,
       isOnline: isOnline,
       lastSeen: lastSeen,
+      fcmToken: token,
     },
     token: token,
   };
